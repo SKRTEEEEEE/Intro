@@ -1,12 +1,11 @@
 require('dotenv').config();
 const app = require('./app.js');
 const cors = require('cors');
-// const mongoose = require('mongoose');
-const dataBlog = require('./data/dataBlog.js');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const UserModel = require('./models/User.js');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+
 const { appConfig, db } = require(`./config.js`);
 
 const connectDb = require('./db/mongodb.js');
@@ -20,8 +19,8 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 // SIGN & LOG IN
 app.post('/signin', async (req, res) => {
@@ -74,40 +73,6 @@ app.get('/profile', (req, res) => {
 app.post('/logout', (req, res) => {
   res.clearCookie('token').json('ok');
 });
-
-// ARTICLES;
-// app.get('/api/articles', (req, res) => {
-//   res.send(dataBlog.articles);
-// });
-
-// app.get('/api/articles/id/:id', (req, res) => {
-//   const article = dataBlog.articles.find(
-//     (x) => x.id.toString() === req.params.id
-//   );
-//   if (article) {
-//     res.send(article);
-//   } else {
-//     res.status(404).send({ message: 'Product Not Found' });
-//   }
-// });
-
-// app.post('/api/articles', (req, res) => {
-//   let articuloNuevo = req.body;
-//   dataBlog.articles.push(articuloNuevo);
-//   res.send(dataBlog.articles);
-//   console.log(articuloNuevo);
-// });
-
-// app.delete('/api/articles/id/:id', (req, res) => {
-//   const id = req.params.id;
-//   const indice = dataBlog.articles.findIndex((curso) => curso.id == id);
-
-//   if (indice >= 0) {
-//     dataBlog.articles.splice(indice, 1);
-//   }
-//   res.send(JSON.stringify(dataBlog.articles));
-//   console.log('deleted with :D');
-// });
 
 async function initApp(appConfig, db) {
   try {

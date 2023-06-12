@@ -3,17 +3,11 @@ import { Parallax } from 'react-parallax';
 import image1 from '../img/Dark Queen 420.png';
 import image2 from '../img/crazy.gif';
 import image3 from '../img/Fondos webs.gif';
-//import '../ModuleParrallax/css/introsParallax.css';
-//import '../ModuleParrallax/css/parrafoText.css';
 import '../ModuleParrallax/css/moduleParallax.css';
 import '../ModuleParrallax/css/headerParallax.css';
-
-//import { SideMenu } from '../components/sidemenu/sidemenu';
 import { ParagText } from '../components/moduleParallax/paragText/ParagText';
 import { mParallaxAutomatisationData } from '../data/MParallax/mParallaxAutomatisationData';
 import { Link } from 'react-router-dom';
-
-//import { Header } from '../components/header/Header';
 import { Hero } from '../components/moduleParallax/hero/Hero';
 
 export function MParallaxAutomatisation() {
