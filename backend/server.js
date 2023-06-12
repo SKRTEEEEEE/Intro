@@ -1,5 +1,5 @@
 require('dotenv').config();
-const express = require('express');
+const app = require('./app.js');
 const cors = require('cors');
 // const mongoose = require('mongoose');
 const dataBlog = require('./data/dataBlog.js');
@@ -13,7 +13,6 @@ const connectDb = require('./db/mongodb.js');
 
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 
-const app = express();
 app.use(
   cors({
     credentials: true,
