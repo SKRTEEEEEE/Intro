@@ -23,17 +23,6 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// mongoose
-//   .connect(
-//     'mongodb+srv://adan:h8DuTiZyr2ZAgXeL@cluster0.7ljcxih.mongodb.net/?retryWrites=true&w=majority'
-//   )
-//   .then(() => {
-//     console.log('connected to db');
-//   })
-//   .catch((err) => {
-//     console.log(err.message);
-//   });
-
 // SIGN & LOG IN
 app.post('/signin', async (req, res) => {
   const { username, password, email } = req.body;
@@ -91,37 +80,34 @@ app.post('/logout', (req, res) => {
 //   res.send(dataBlog.articles);
 // });
 
-app.get('/api/articles/id/:id', (req, res) => {
-  const article = dataBlog.articles.find(
-    (x) => x.id.toString() === req.params.id
-  );
-  if (article) {
-    res.send(article);
-  } else {
-    res.status(404).send({ message: 'Product Not Found' });
-  }
-});
+// app.get('/api/articles/id/:id', (req, res) => {
+//   const article = dataBlog.articles.find(
+//     (x) => x.id.toString() === req.params.id
+//   );
+//   if (article) {
+//     res.send(article);
+//   } else {
+//     res.status(404).send({ message: 'Product Not Found' });
+//   }
+// });
 
-app.post('/api/articles', (req, res) => {
-  let articuloNuevo = req.body;
-  dataBlog.articles.push(articuloNuevo);
-  res.send(dataBlog.articles);
-  console.log(articuloNuevo);
-});
+// app.post('/api/articles', (req, res) => {
+//   let articuloNuevo = req.body;
+//   dataBlog.articles.push(articuloNuevo);
+//   res.send(dataBlog.articles);
+//   console.log(articuloNuevo);
+// });
 
-app.delete('/api/articles/id/:id', (req, res) => {
-  const id = req.params.id;
-  const indice = dataBlog.articles.findIndex((curso) => curso.id == id);
+// app.delete('/api/articles/id/:id', (req, res) => {
+//   const id = req.params.id;
+//   const indice = dataBlog.articles.findIndex((curso) => curso.id == id);
 
-  if (indice >= 0) {
-    dataBlog.articles.splice(indice, 1);
-  }
-  res.send(JSON.stringify(dataBlog.articles));
-  console.log('deleted with :D');
-});
-
-// PORT ACCESS Y MONGODB CONNECTION
-// const port = process.env.APP_PORT || 5000;
+//   if (indice >= 0) {
+//     dataBlog.articles.splice(indice, 1);
+//   }
+//   res.send(JSON.stringify(dataBlog.articles));
+//   console.log('deleted with :D');
+// });
 
 async function initApp(appConfig, db) {
   try {
