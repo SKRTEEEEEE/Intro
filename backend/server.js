@@ -86,10 +86,10 @@ app.post('/logout', (req, res) => {
   res.clearCookie('token').json('ok');
 });
 
-// ARTICLES
-app.get('/api/articles', (req, res) => {
-  res.send(dataBlog.articles);
-});
+// ARTICLES;
+// app.get('/api/articles', (req, res) => {
+//   res.send(dataBlog.articles);
+// });
 
 app.get('/api/articles/id/:id', (req, res) => {
   const article = dataBlog.articles.find(
