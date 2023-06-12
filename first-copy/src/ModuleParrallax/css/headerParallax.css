@@ -1,0 +1,118 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 47px;
+  background-color: #000a17;
+  color: #fff;
+  font-size: 24px;
+  position: auto;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.header a {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.header a:hover {
+  transform: translateZ(10px);
+}
+
+.header button {
+  /* background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;*/
+  transition: transform 0.3s ease-in-out;
+}
+
+.header button:hover {
+  transform: translateZ(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 50px;
+  }
+
+  .header a {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+
+  .header button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+.header button {
+  background-color: #f0d24a2c;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 9px;
+  word-spacing: 10px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.header button:hover {
+  animation: arrow-glow 1s ease-in-out infinite alternate;
+}
+
+.header button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #4d4d4d, #00ffff, #ff00ff);
+  z-index: -1;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.header button:hover:before {
+  transform: translateX(0);
+}
+
+.header button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+.header button:hover:after {
+  transform: translateY(-50%) rotate(135deg);
+}
+
+@keyframes arrow-glow {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  to {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0);
+  }
+}

@@ -1,0 +1,95 @@
+.login {
+  height: 100vh;
+  color: white;
+  display: flex;
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}
+/* .signin {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  height: 100vh;
+  text-align: center;
+} */
+.signin-form {
+  /* max-width: 400px; */
+  margin: auto;
+  background-color: #1e1e1e;
+  padding: 0 50px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+}
+
+.login-form {
+  max-width: 400px;
+  margin: auto;
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+}
+
+.login-form h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+}
+
+.login-description {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  background-color: #8a8888;
+  border: none;
+  border-radius: 0px;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 30px;
+  box-shadow: none;
+  width: 100%;
+  gap: 30px;
+}
+
+.placeholder {
+  height: 50px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.neofuturistic-button {
+  background-color: #8a8888;
+  border-color: #ff7faa;
+  border-width: 5px;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 30px;
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#register {
+  color: #1e1e1e;
+  margin: auto;
+}

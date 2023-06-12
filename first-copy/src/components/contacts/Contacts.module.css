@@ -1,0 +1,31 @@
+.mainContainer {
+  display: flex;
+}
+.sidebar {
+  width: 200px;
+  background-color: #eee;
+  height: 100vh;
+}
+.sidebar a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #222;
+}
+.sidebar a:hover {
+  background-color: #222;
+  color: white;
+}
+.tittle {
+  position: fixed;
+  top: 0;
+  /*  left: 50%; */
+}
+.contactContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
