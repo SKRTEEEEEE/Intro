@@ -8,6 +8,9 @@ const uploadMiddleware = multer({ dest: 'uploads/' });
 
 const addProduct = require('./routes/product');
 const addArticle = require('./routes/article');
+const profileRouter = require('./routes/profile');
+const logoutRouter = require('./routes/logout');
+const signinRouter = require('./routes/signin');
 
 const app = express();
 
@@ -25,5 +28,8 @@ app.use(cookieParser());
 app.use('/api', uploadMiddleware.single('file'));
 app.use('/v1', addProduct);
 app.use('/api', addArticle);
+app.use('/profile', profileRouter);
+app.use('/logout', logoutRouter);
+app.use('/signin', signinRouter);
 
 module.exports = app;
