@@ -1,5 +1,8 @@
-// const express = require('express');
+const express = require('express');
+const { doLogin } = require('../controllers/loginController');
 
-// const api = express.Router();
+const api = express.Router();
 
-// module.exports = api;
+api.post('/', doLogin);
+
+module.exports = api;

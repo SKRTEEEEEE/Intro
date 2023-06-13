@@ -11,12 +11,12 @@ const addArticle = require('./routes/article');
 const profileRouter = require('./routes/profile');
 const logoutRouter = require('./routes/logout');
 const signinRouter = require('./routes/signin');
+const loginRouter = require('./routes/login');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(
   cors({
     credentials: true,
@@ -31,5 +31,6 @@ app.use('/api', addArticle);
 app.use('/profile', profileRouter);
 app.use('/logout', logoutRouter);
 app.use('/signin', signinRouter);
+app.use('/login', loginRouter);
 
 module.exports = app;
