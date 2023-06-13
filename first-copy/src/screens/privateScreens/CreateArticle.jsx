@@ -23,14 +23,13 @@ export default function CreateArticle() {
       credentials: 'include',
     });
     if (response.ok) {
-      //   setRedirect(true);
-      console.log(':D');
+      setRedirect(true);
+      console.log(':D, new article created');
     }
   }
 
   if (redirect) {
-    // return <Navigate to={'/'} />;
-    alert('hello');
+    return <Navigate to={'/'} />;
   }
   return (
     <form onSubmit={createNewPost}>
