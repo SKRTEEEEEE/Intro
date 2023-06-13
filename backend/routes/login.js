@@ -3,6 +3,6 @@ const { doLogin } = require('../controllers/loginController');
 
 const api = express.Router();
 
-api.post('/', doLogin);
+api.post('/login', doLogin);
 
 module.exports = api;

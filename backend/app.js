@@ -28,9 +28,9 @@ app.use(cookieParser());
 app.use('/api', uploadMiddleware.single('file'));
 app.use('/v1', addProduct);
 app.use('/api', addArticle);
-app.use('/profile', profileRouter);
-app.use('/logout', logoutRouter);
-app.use('/signin', signinRouter);
-app.use('/login', loginRouter);
+app.use('/', profileRouter);
+app.use('/', logoutRouter);
+app.use('/', signinRouter);
+app.use('/', loginRouter);
 
 module.exports = app;

@@ -5,6 +5,9 @@ const config = {
   db: {
     uri: process.env.MONGODB_URI,
   },
+  secret: {
+    jwt: process.env.SECRET_JWT,
+  },
 };
 
 module.exports = config;

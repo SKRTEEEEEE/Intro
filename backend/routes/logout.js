@@ -3,8 +3,6 @@ const { doLogout } = require('../controllers/logoutController');
 
 const api = express.Router();
 
-// app.post('/logout');
-
-api.post('/', doLogout);
+api.post('/logout', doLogout);
 
 module.exports = api;
