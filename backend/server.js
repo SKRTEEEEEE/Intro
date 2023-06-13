@@ -5,9 +5,10 @@ const cors = require('cors');
 const UserModel = require('./models/User.js');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const multer = require('multer');
+const uploadMiddleware = multer({ dest: 'uploads/' });
 
 const { appConfig, db } = require(`./config.js`);
-
 const connectDb = require('./db/mongodb.js');
 
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
@@ -21,6 +22,12 @@ app.use(
 app.use(cookieParser());
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
+
+//ARTICLE
+
+app.post('/api/articles', uploadMiddleware.single('file'), (req, res) => {
+  res.json({ files: req.file });
+});
 
 // SIGN & LOG IN
 app.post('/signin', async (req, res) => {
