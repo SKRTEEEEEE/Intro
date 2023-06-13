@@ -2,38 +2,11 @@ const express = require('express');
 const {
   addArticleFromData,
   findArticleById,
+  postArticle,
 } = require('../controllers/articleController');
 const api = express.Router();
 
-// const multer = require('multer');
-// const uploadMiddleware = multer({ dest: 'uploads/' });
-
-// function findArticleById (req,res){
-//     const article = dataBlog.articles.find(
-//         (x) => x.id.toString() === req.params.id
-//       );
-//       if (article) {
-//         res.send(article);
-//       } else {
-//         res.status(404).send({ message: 'Product Not Found' });
-//       }
-// }
-
-// app.get('/api/articles/id/:id', (req, res) => {
-//     const article = dataBlog.articles.find(
-//       (x) => x.id.toString() === req.params.id
-//     );
-//     if (article) {
-//       res.send(article);
-//     } else {
-//       res.status(404).send({ message: 'Product Not Found' });
-//     }
-//   });
-
-// api.post('/api/articles', uploadMiddleware.single('file'), (req, res) => {
-//   res.json('{ files: req.file }');
-// });
-
+api.post('/articles', postArticle);
 api.get('/articles/id/:id', findArticleById);
 api.get('/articles', addArticleFromData);
 

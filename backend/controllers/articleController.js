@@ -1,5 +1,9 @@
 const dataBlog = require('../data/dataBlog');
 
+function postArticle(req, res) {
+  res.json({ files: req.file });
+}
+
 function addArticleFromData(req, res) {
   res.send(dataBlog.articles);
 }
@@ -17,4 +21,5 @@ function findArticleById(req, res) {
 module.exports = {
   addArticleFromData,
   findArticleById,
+  postArticle,
 };
