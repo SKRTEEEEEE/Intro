@@ -2,9 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useReducer } from 'react';
 import { Parallax } from 'react-parallax';
 import { useParams } from 'react-router-dom';
-import image1 from '../img/crazy.gif';
-//import { SideMenu } from '../components/sidemenu/sidemenu';
-import './css/article.css';
+import image1 from '../../img/crazy.gif';
+import '../mainScreens/css/article.css';
 
 const reducer = (state, action) => {
   switch (action.type) {

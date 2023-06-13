@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './css/login.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../hooks/AuthContext';
+import { AuthContext } from '../../hooks/AuthContext';
 // import { Parallax } from 'react-parallax';
 // import wallpaper from '../../src/img/wallpaper1.gif';
 

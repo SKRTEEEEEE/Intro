@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Login from '../screens/Login';
-import Signin from '../screens/Signin';
+import Login from '../screens/publicScreens/Login';
+import Signin from '../screens/publicScreens/Signin';
 
 export default function PublicRoutes() {
   return (

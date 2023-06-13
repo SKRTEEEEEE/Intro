@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 //import dataBlog from '../data/dataBlog';
-import './css/blog.css';
+import '../mainScreens/css/blog.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logger from 'use-reducer-logger';

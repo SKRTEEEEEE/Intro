@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Users from '../privateScreens/Users';
-import { AccountPage } from '../privateScreens/AccountPage';
-import CreateArticle from '../privateScreens/CreateArticle';
+import Users from '../screens/privateScreens/Users';
+import { AccountPage } from '../screens/privateScreens/AccountPage';
+import CreateArticle from '../screens/privateScreens/CreateArticle';
 
 export const PrivateRoutes = () => {
   return (

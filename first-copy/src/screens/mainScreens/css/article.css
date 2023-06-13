@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #000a17;
   color: whitesmoke;
-  background: url('../../../public/img/bg.jpeg');
+  background: url('../../../../public/img/bg.jpeg');
 }
 #article-text-blog {
   font-size: 18px;

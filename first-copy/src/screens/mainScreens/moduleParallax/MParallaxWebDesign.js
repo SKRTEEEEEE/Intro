@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Parallax } from 'react-parallax';
-import image1 from '../img/Dark Queen 420.png';
-import image2 from '../img/crazy.gif';
-import image3 from '../img/Fondos webs.gif';
-import '../ModuleParrallax/css/moduleParallax.css';
-import '../ModuleParrallax/css/headerParallax.css';
-import { ParagText } from '../components/moduleParallax/paragText/ParagText';
-import { MParallaxWebDesignData } from '../data/MParallax/MParallaxWebDesignData';
+import image1 from '../../../img/Dark Queen 420.png';
+import image2 from '../../../img/crazy.gif';
+import image3 from '../../../img/Fondos webs.gif';
+import '../moduleParallax/css/moduleParallax.css';
+import '../moduleParallax/css/headerParallax.css';
+import { ParagText } from '../../../components/moduleParallax/paragText/ParagText';
+import { MParallaxWebDesignData } from '../../../data/MParallax/MParallaxWebDesignData';
 import { Link } from 'react-router-dom';
-import { Hero } from '../components/moduleParallax/hero/Hero';
+import { Hero } from '../../../components/moduleParallax/hero/Hero';
 
 export function MParallaxWebDesign() {
   const [index, setIndex] = useState(0);
