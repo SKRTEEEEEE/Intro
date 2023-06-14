@@ -57,7 +57,7 @@ export const Article = () => {
           <h1 id="article-tittle">{article.tittle}</h1>
           <div id="header-subtittle">
             <p>{article.date}</p>
-            <p>{article.autor}</p>
+            <p>{article.author}</p>
           </div>
         </header>
         <Parallax blur={3} strength={30} bgImage={image1}>

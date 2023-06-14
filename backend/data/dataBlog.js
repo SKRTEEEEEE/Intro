@@ -2,12 +2,12 @@ const dataBlog = {
   articles: [
     {
       id: 1,
-      tittle: 'Reducing waste and pollution',
+      title: 'Reducing waste and pollution',
       autor: 'Sektersyto',
       date: '19-04-2023',
       category: 'Ecologism',
       image: '/img/blog/p1.jpg',
-      subtittle:
+      summary:
         'Smart contacts are helping to save time and reduce contamination',
       resum:
         'Smart contacts are an emerging technology that allows users to control electronic devices and perform online activities through direct eye interaction. However, concerns over the environmental impact of these devices remain an important issue. One way to reduce pollution from smart contacts is through the optimization of computational costs.',

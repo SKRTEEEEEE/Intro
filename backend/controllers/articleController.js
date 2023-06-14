@@ -1,26 +1,46 @@
 const dataBlog = require('../data/dataBlog');
 const fs = require('fs');
 const Article = require('../models/Article');
+const ArticleModel = require('../models/Article');
+const jwt = require('jsonwebtoken');
+const { secret } = require('../config.js');
 
 async function postArticle(req, res) {
-  const { originalname, path } = req.file;
+  //Revisar uso de imagen, para subir imagen
+  const { originalname, path: filePath } = req.file;
   const parts = originalname.split('.');
   const ext = parts[parts.length - 1];
-  const newPath = path + '.' + ext;
-  fs.renameSync(path, newPath);
-  const { title, content, summary } = req.body;
-  const articleDoc = await Article.create({
-    title,
-    summary,
-    content,
-    cover: newPath,
-  });
+  const newPath = filePath + '.' + ext;
+  const newPathWithForwardSlashes = newPath.replace(/\\/g, '/');
+  fs.renameSync(filePath, newPathWithForwardSlashes);
 
-  res.json(articleDoc);
+  const { token } = req.cookies;
+  jwt.verify(token, secret.jwt, {}, async (err, info) => {
+    if (err) throw err;
+    const { title, content, summary } = req.body;
+    const articleDoc = await Article.create({
+      title,
+      summary,
+      content,
+      cover: newPathWithForwardSlashes,
+      author: info.username,
+    });
+    res.json(articleDoc);
+  });
 }
 
-function addArticleFromData(req, res) {
-  res.send(dataBlog.articles);
+async function getArticles(req, res) {
+  try {
+    const articlesFromDataBlog = dataBlog.articles;
+    const articlesFromDB = await ArticleModel.find().populate('author', [
+      'username',
+    ]);
+    const allArticles = [...articlesFromDataBlog, ...articlesFromDB];
+    res.json(allArticles);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al obtener los artículos.' });
+  }
 }
 function findArticleById(req, res) {
   const article = dataBlog.articles.find(
@@ -34,7 +54,7 @@ function findArticleById(req, res) {
 }
 
 module.exports = {
-  addArticleFromData,
+  getArticles,
   findArticleById,
   postArticle,
 };

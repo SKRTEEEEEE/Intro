@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  addArticleFromData,
+  getArticles,
   findArticleById,
   postArticle,
 } = require('../controllers/articleController');
@@ -8,7 +8,7 @@ const api = express.Router();
 
 api.post('/articles', postArticle);
 api.get('/articles/id/:id', findArticleById);
-api.get('/articles', addArticleFromData);
+api.get('/articles', getArticles);
 
 //FUNCIONES HTTP PARA PASAR/CREAR
 

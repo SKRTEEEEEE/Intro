@@ -11,17 +11,22 @@ async function doLogin(req, res) {
   // console.log(secret);
 
   if (passOk) {
-    jwt.sign({ email, id: userDoc._id }, secret.jwt, {}, (err, token) => {
-      if (err) {
-        res.status(500).json({ error: 'An error occurred' });
-      } else {
-        res.cookie('token', token, { httpOnly: true }).json({
-          id: userDoc._id,
-          email: userDoc.email,
-          username: userDoc.username,
-        });
+    jwt.sign(
+      { email, id: userDoc._id, username: userDoc.username },
+      secret.jwt,
+      {},
+      (err, token) => {
+        if (err) {
+          res.status(500).json({ error: 'An error occurred' });
+        } else {
+          res.cookie('token', token, { httpOnly: true }).json({
+            id: userDoc._id,
+            email: userDoc.email,
+            username: userDoc.username,
+          });
+        }
       }
-    });
+    );
     console.log(`Login ${userDoc.username} with email ${userDoc.email}`);
   } else {
     res.status(400).json('wrong credentials');

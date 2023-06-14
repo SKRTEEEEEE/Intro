@@ -53,10 +53,17 @@ function Blog() {
         articles.map((article) => (
           <Link to={`/blog/${article.id}`}>
             <div key={article.id} className="blog-article">
-              <img src={article.image} alt={article.id} />
+              <img
+                src={'http://localhost:5000/' + article.cover}
+                alt={article.id}
+              />
               <div>
-                <h1>{article.tittle}</h1>
-                <p>{article.resum}</p>
+                <h1>{article.title}</h1>
+                <div>
+                  <time>{article.createdAt}</time>
+                  <p>{article.author}</p>
+                </div>
+                <p>{article.summary}</p>
               </div>
             </div>
           </Link>

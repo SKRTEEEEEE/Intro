@@ -8,6 +8,7 @@ const ArticleSchema = new Schema(
     summary: String,
     content: String,
     cover: String,
+    author: String,
   },
   {
     timestamps: true,
