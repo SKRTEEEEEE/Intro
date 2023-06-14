@@ -12,13 +12,6 @@ api.get('/articles', getArticles);
 
 //FUNCIONES HTTP PARA PASAR/CREAR
 
-// app.post('/api/articles', (req, res) => {
-//     let articuloNuevo = req.body;
-//     dataBlog.articles.push(articuloNuevo);
-//     res.send(dataBlog.articles);
-//     console.log(articuloNuevo);
-//   });
-
 //   app.delete('/api/articles/id/:id', (req, res) => {
 //     const id = req.params.id;
 //     const indice = dataBlog.articles.findIndex((curso) => curso.id == id);

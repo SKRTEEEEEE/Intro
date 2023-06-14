@@ -26,6 +26,7 @@ function Blog() {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 3;
+  const [orderBy, setOrderBy] = useState('date');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,15 +41,23 @@ function Blog() {
     fetchData();
   }, []);
 
-  // Calcular el índice inicial y final de los artículos a mostrar
+  const sortedArticles = articles.sort((a, b) => {
+    if (orderBy === 'date') {
+      return moment(b.createdAt).isBefore(a.createdAt) ? -1 : 1;
+    } else if (orderBy === 'creator') {
+      return a.author === 'QUEEN420' ? -1 : 1;
+    } else {
+      return 0;
+    }
+  });
+
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = articles.slice(
+  const currentArticles = sortedArticles.slice(
     indexOfFirstArticle,
     indexOfLastArticle
   );
 
-  // Cambiar la página actual
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -64,43 +73,56 @@ function Blog() {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        currentArticles.map((article) => (
-          <Link to={`/blog/${article._id}`} key={article._id}>
-            <div className="blog-article">
-              <img
-                src={'http://localhost:5000/' + article.cover}
-                alt={article.id}
-              />
-              <div>
-                <h1>{article.title}</h1>
+        <>
+          {currentArticles.map((article) => (
+            <Link to={`/blog/${article._id}`} key={article._id}>
+              <div className="blog-article">
+                <img
+                  src={'http://localhost:5000/' + article.cover}
+                  alt={article.id}
+                />
                 <div>
-                  <time>{moment(article.createdAt).format('DD/MM/YYYY')}</time>
-                  <p>{article.author}</p>
+                  <h1>{article.title}</h1>
+                  <div>
+                    <time>
+                      {moment(article.createdAt).format('DD/MM/YYYY')}
+                    </time>
+                    <p>{article.author}</p>
+                  </div>
+                  <p>{article.summary}</p>
                 </div>
-                <p>{article.summary}</p>
               </div>
+            </Link>
+          ))}
+          <div>
+            <div>
+              <select
+                value={orderBy}
+                onChange={(e) => setOrderBy(e.target.value)}
+              >
+                <option value="date">Mas recientes</option>
+                <option value="creator">QUEEN420</option>
+              </select>
             </div>
-          </Link>
-        ))
-      )}
+            <div>
+              {currentPage > 1 && (
+                <button onClick={() => handlePageChange(currentPage - 1)}>
+                  Anterior
+                </button>
+              )}
+              {currentPage < Math.ceil(articles.length / articlesPerPage) && (
+                <button onClick={() => handlePageChange(currentPage + 1)}>
+                  Siguiente
+                </button>
+              )}
+            </div>
 
-      <div>
-        <Link to="/">
-          <h1>Go home again</h1>
-        </Link>
-        <div>
-          {currentPage > 1 && (
-            <button onClick={() => handlePageChange(currentPage - 1)}>
-              Anterior
-            </button>
-          )}
-          {currentPage < Math.ceil(articles.length / articlesPerPage) && (
-            <button onClick={() => handlePageChange(currentPage + 1)}>
-              Siguiente
-            </button>
-          )}
-        </div>
-      </div>
+            <Link to="/">
+              <h1>Go home again</h1>
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 }

@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const { secret } = require('../config.js');
 
 async function postArticle(req, res) {
-  //Revisar uso de imagen, para subir imagen
+  //Revisar uso de imagen, para subir imagen, tambien uso del path
   const { originalname, path: filePath } = req.file;
   const parts = originalname.split('.');
   const ext = parts[parts.length - 1];
@@ -42,16 +42,7 @@ async function getArticles(req, res) {
     res.status(500).json({ error: 'Error al obtener los artículos.' });
   }
 }
-// function findArticleById(req, res) {
-//   const article = dataBlog.articles.find(
-//     (x) => x.id.toString() === req.params.id
-//   );
-//   if (article) {
-//     res.send(article);
-//   } else {
-//     res.status(404).send({ message: 'Product Not Found' });
-//   }
-// }
+
 async function findArticleById(req, res) {
   const articleId = req.params._id;
 

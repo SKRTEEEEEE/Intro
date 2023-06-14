@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useReducer } from 'react';
 import { Parallax } from 'react-parallax';
 import { useParams } from 'react-router-dom';
-import image1 from '../../img/crazy.gif';
 import '../mainScreens/css/article.css';
+import moment from 'moment';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -42,31 +42,32 @@ export const Article = () => {
     fetchData();
   }, [_id]);
 
-  //const image1= {article.image};
-
   return loading ? (
     <div>Loading...</div>
   ) : error ? (
     <div>{error}</div>
   ) : (
     <div>
-      {/* <SideMenu /> */}
-      {/* {article.tittle} */}
       <div id="article-blog">
         <header>
           <h1 id="article-tittle">{article.title}</h1>
           <div id="header-subtittle">
-            <p>{article.date}</p>
+            <time>{moment(article.createdAt).format('DD/MM/YYYY')}</time>
             <p>{article.author}</p>
           </div>
         </header>
-        <Parallax blur={3} strength={30} bgImage={image1}>
+        <Parallax
+          blur={3}
+          strength={30}
+          bgImage={'http://localhost:5000/' + article.cover}
+        >
           <div style={{ height: '60vh' }}>
-            <section id="subtittle">{article.subtittle}</section>
+            <section id="subtittle">{article.summary}</section>
           </div>
         </Parallax>
-        {/* <img className="img-large" src={article.image} alt={article.id}></img> */}
-        <section id="article-text-blog">{article.article}</section>
+        <section id="article-text-blog">
+          <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
+        </section>
       </div>
     </div>
   );
