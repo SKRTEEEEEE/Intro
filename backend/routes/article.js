@@ -7,7 +7,7 @@ const {
 const api = express.Router();
 
 api.post('/articles', postArticle);
-api.get('/articles/id/:id', findArticleById);
+api.get('/articles/id/:_id', findArticleById);
 api.get('/articles', getArticles);
 
 //FUNCIONES HTTP PARA PASAR/CREAR

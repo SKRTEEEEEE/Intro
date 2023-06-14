@@ -42,14 +42,30 @@ async function getArticles(req, res) {
     res.status(500).json({ error: 'Error al obtener los artículos.' });
   }
 }
-function findArticleById(req, res) {
-  const article = dataBlog.articles.find(
-    (x) => x.id.toString() === req.params.id
-  );
-  if (article) {
-    res.send(article);
-  } else {
-    res.status(404).send({ message: 'Product Not Found' });
+// function findArticleById(req, res) {
+//   const article = dataBlog.articles.find(
+//     (x) => x.id.toString() === req.params.id
+//   );
+//   if (article) {
+//     res.send(article);
+//   } else {
+//     res.status(404).send({ message: 'Product Not Found' });
+//   }
+// }
+async function findArticleById(req, res) {
+  const articleId = req.params._id;
+
+  try {
+    const article = await ArticleModel.findById(articleId);
+
+    if (article) {
+      res.json(article);
+    } else {
+      res.status(404).json({ message: 'Article Not Found' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al obtener el artículo.' });
   }
 }
 

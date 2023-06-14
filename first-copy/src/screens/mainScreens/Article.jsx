@@ -21,7 +21,7 @@ const reducer = (state, action) => {
 export const Article = () => {
   const params = useParams();
 
-  const { id } = params;
+  const { _id } = params;
 
   const [{ loading, error, article }, dispatch] = useReducer(reducer, {
     article: [],
@@ -33,14 +33,14 @@ export const Article = () => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get(`/api/articles/id/${id}`);
+        const result = await axios.get(`/api/articles/id/${_id}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
     };
     fetchData();
-  }, [id]);
+  }, [_id]);
 
   //const image1= {article.image};
 
@@ -54,7 +54,7 @@ export const Article = () => {
       {/* {article.tittle} */}
       <div id="article-blog">
         <header>
-          <h1 id="article-tittle">{article.tittle}</h1>
+          <h1 id="article-tittle">{article.title}</h1>
           <div id="header-subtittle">
             <p>{article.date}</p>
             <p>{article.author}</p>

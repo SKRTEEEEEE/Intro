@@ -1,9 +1,9 @@
-import React, { useEffect, useReducer } from 'react';
-//import dataBlog from '../data/dataBlog';
+import React, { useEffect, useReducer, useState } from 'react';
 import '../mainScreens/css/blog.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
+import moment from 'moment';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -24,7 +24,8 @@ function Blog() {
     loading: true,
     error: '',
   });
-  //const [articles, setArticles] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 3;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,10 +36,23 @@ function Blog() {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
-      //setArticles(result.data);
     };
     fetchData();
   }, []);
+
+  // Calcular el índice inicial y final de los artículos a mostrar
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+  const currentArticles = articles.slice(
+    indexOfFirstArticle,
+    indexOfLastArticle
+  );
+
+  // Cambiar la página actual
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div className="blog-container">
       <div>
@@ -50,9 +64,9 @@ function Blog() {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        articles.map((article) => (
-          <Link to={`/blog/${article.id}`}>
-            <div key={article.id} className="blog-article">
+        currentArticles.map((article) => (
+          <Link to={`/blog/${article._id}`} key={article._id}>
+            <div className="blog-article">
               <img
                 src={'http://localhost:5000/' + article.cover}
                 alt={article.id}
@@ -60,7 +74,7 @@ function Blog() {
               <div>
                 <h1>{article.title}</h1>
                 <div>
-                  <time>{article.createdAt}</time>
+                  <time>{moment(article.createdAt).format('DD/MM/YYYY')}</time>
                   <p>{article.author}</p>
                 </div>
                 <p>{article.summary}</p>
@@ -74,6 +88,18 @@ function Blog() {
         <Link to="/">
           <h1>Go home again</h1>
         </Link>
+        <div>
+          {currentPage > 1 && (
+            <button onClick={() => handlePageChange(currentPage - 1)}>
+              Anterior
+            </button>
+          )}
+          {currentPage < Math.ceil(articles.length / articlesPerPage) && (
+            <button onClick={() => handlePageChange(currentPage + 1)}>
+              Siguiente
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

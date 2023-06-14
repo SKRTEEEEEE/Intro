@@ -84,7 +84,7 @@ export default function MainRoutes() {
       />
 
       <Route
-        path="/blog/:id"
+        path="/blog/:_id"
         element={
           <Layout>
             <Article />
