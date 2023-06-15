@@ -1,19 +1,19 @@
 const dataBlog = {
   articles: [
-    {
-      _id: '1',
-      title: 'Reducing waste and pollution',
-      author: 'Sektersyto',
-      createdAt: '2023-06-10T17:17:33.104Z',
-      category: 'Ecologism',
-      cover: '/img/blog/p1.jpg',
-      summary:
-        'Smart contacts are helping to save time and reduce contamination',
-      resum:
-        'Smart contacts are an emerging technology that allows users to control electronic devices and perform online activities through direct eye interaction. However, concerns over the environmental impact of these devices remain an important issue. One way to reduce pollution from smart contacts is through the optimization of computational costs.',
-      content:
-        'Smart contacts are an emerging technology that can help reduce pollution in companies. This is because these devices can optimize the use of resources such as materials and energy by minimizing unnecessary processes. One of the ways that smart contacts can reduce pollution is by monitoring and controlling production processes. By interacting directly with the eyes of workers, smart contacts can detect and report inefficiencies in production processes, allowing companies to reduce the amount of material and energy used. In addition, smart contacts can help companies optimize their energy use. For example, by directly interacting with lighting systems, smart contacts can adjust light intensity based on the amount of natural light available. This not only reduces energy consumption, but can also improve the working environment.',
-    },
+    // {
+    //   _id: '1',
+    //   title: 'Reducing waste and pollution',
+    //   author: 'Sektersyto',
+    //   createdAt: '2023-06-10T17:17:33.104Z',
+    //   category: 'Ecologism',
+    //   cover: '/img/blog/p1.jpg',
+    //   summary:
+    //     'Smart contacts are helping to save time and reduce contamination',
+    //   resum:
+    //     'Smart contacts are an emerging technology that allows users to control electronic devices and perform online activities through direct eye interaction. However, concerns over the environmental impact of these devices remain an important issue. One way to reduce pollution from smart contacts is through the optimization of computational costs.',
+    //   content:
+    //     'Smart contacts are an emerging technology that can help reduce pollution in companies. This is because these devices can optimize the use of resources such as materials and energy by minimizing unnecessary processes. One of the ways that smart contacts can reduce pollution is by monitoring and controlling production processes. By interacting directly with the eyes of workers, smart contacts can detect and report inefficiencies in production processes, allowing companies to reduce the amount of material and energy used. In addition, smart contacts can help companies optimize their energy use. For example, by directly interacting with lighting systems, smart contacts can adjust light intensity based on the amount of natural light available. This not only reduces energy consumption, but can also improve the working environment.',
+    // },
     {
       _id: 2,
       title: 'Smart Contracts for Sustainable Energy',

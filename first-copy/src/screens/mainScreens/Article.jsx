@@ -50,10 +50,12 @@ export const Article = () => {
     <div>
       <div id="article-blog">
         <header>
-          <h1 id="article-tittle">{article.title}</h1>
-          <div id="header-subtittle">
-            <time>{moment(article.createdAt).format('DD/MM/YYYY')}</time>
-            <p>{article.author}</p>
+          <div>
+            <h1 id="article-tittle">{article.title}</h1>
+            <div id="header-subtittle">
+              <time>{moment(article.createdAt).format('DD/MM/YYYY')}</time>
+              <p>{article.author}</p>
+            </div>
           </div>
         </header>
         <Parallax

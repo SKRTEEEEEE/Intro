@@ -12,19 +12,22 @@
 }
 #subtittle {
   width: 80%;
-  color: mediumaquamarine;
+  color: red;
   position: absolute;
   font-size: 30px;
-  bottom: calc(50% - 60px);
+  bottom: calc(50% - 32.5px);
   right: 10%;
   @media only screen and (max-width: 768px) {
-    bottom: calc(50% - 60px);
+    bottom: calc(50% - 20px);
   }
 }
 #article-blog > header {
   font-size: 30px;
   padding-top: 30px;
-  height: 65vh;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media only screen and (max-width: 768px) {
     padding: 20px;

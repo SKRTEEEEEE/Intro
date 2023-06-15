@@ -64,7 +64,7 @@ function Blog() {
 
   return (
     <div className="blog-container">
-      <div>
+      <div id="blog-title">
         <h1>Articles</h1>
       </div>
 
@@ -81,12 +81,14 @@ function Blog() {
                   src={'http://localhost:5000/' + article.cover}
                   alt={article.id}
                 />
-                <div>
+                <div id="text-article">
                   <h1>{article.title}</h1>
-                  <div>
-                    <time>
-                      {moment(article.createdAt).format('DD/MM/YYYY')}
-                    </time>
+                  <div id="info-article">
+                    <p>
+                      <time>
+                        {moment(article.createdAt).format('DD/MM/YYYY')}
+                      </time>
+                    </p>
                     <p>{article.author}</p>
                   </div>
                   <p>{article.summary}</p>
@@ -94,17 +96,11 @@ function Blog() {
               </div>
             </Link>
           ))}
-          <div>
-            <div>
-              <select
-                value={orderBy}
-                onChange={(e) => setOrderBy(e.target.value)}
-              >
-                <option value="date">Mas recientes</option>
-                <option value="creator">QUEEN420</option>
-              </select>
-            </div>
-            <div>
+          <div id="bottom-navbar">
+            <Link to="/">
+              <h1>Go home again</h1>
+            </Link>
+            <div id="butons-navbar">
               {currentPage > 1 && (
                 <button onClick={() => handlePageChange(currentPage - 1)}>
                   Anterior
@@ -116,10 +112,15 @@ function Blog() {
                 </button>
               )}
             </div>
-
-            <Link to="/">
-              <h1>Go home again</h1>
-            </Link>
+            <div id="search-navbar">
+              <select
+                value={orderBy}
+                onChange={(e) => setOrderBy(e.target.value)}
+              >
+                <option value="date">Mas recientes</option>
+                <option value="creator">QUEEN420</option>
+              </select>
+            </div>
           </div>
         </>
       )}
