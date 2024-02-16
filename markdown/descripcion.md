@@ -2,26 +2,25 @@
 
 ## Objetivos
 
-### Funcionalidades Principales
+Aprender el uso de las principales tecnologias utilizadas en el "Fullstack Javascript"
 
-### Casos de Uso
+### Tecnologias Principales
 
-## Componentes del Proyecto
+- Javascript: Lenguaje utilizado para el cliente
+- React: Libreria principal del proyecto FrontEnd
+- NodeJS: Lenguaje utilizado para el servidor
+- ExpressJS: Libreria principal del proyecto BackEnd
+- MongoDB: Base de datos utilizada para el proyecto
+- Nodemon: "Reahidratacion" del servidor Node.js para desarollo.
+- ThreeJS: Biblioteca 3D para navegador web.
+- CSS: Lenguaje de estilo principal.
+- StyledComponents: Biblioteca de estilo para React.
+- JWT: 
 
-### TokenizeProperty (Ejemplo1)
+## Funcionalidades Principales
 
-#### Propósito
+- Mostrar la informacion a los usuarios
+- Permitir crearse una cuenta y logearse(Auth)
+- Permitir enviar correos electronicos al desarollador desde la web
+- Permitir a los usuarios escribir un articulo de opinion
 
-Este contrato permite la creación y gestión de tokens no fungibles que representan propiedades.
-
-#### Funcionalidades
-
-- Creación de nuevos tokens NFT asociados a propiedades.
-- Transferencia de propiedad de un token a otro usuario.
-- Consulta del propietario actual de un token NFT.
-
-### CrossDestinationMinter (Ej2)
-
-#### Propósito
-
-#### Funcionalidades
