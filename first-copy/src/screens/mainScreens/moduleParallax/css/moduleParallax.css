@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@200;300;500;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: whitesmoke;
+  transition: all 3ms ease;
+  color: #000a17;
+  scroll-behavior: smooth;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  overflow: auto;
+}
+/*
+.App {
+  display: flex;
+  flex-direction: column;
+}*/
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4aa73852;
+  border-radius: 1ex;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --changeColor: changeColor 1s ease 0.1ms infinite reverse;
+  --changeColorReverse: changeColor 3s ease 0.5ms 20 alternate;
+  --move: move 0.8s ease 0.3s infinite reverse;
+}
+
+@keyframes changeColor {
+  1% {
+    color: rgba(212, 201, 100, 0.616);
+  }
+  15% {
+    color: rgba(57, 211, 57, 0.452);
+  }
+  30% {
+    color: rgba(105, 105, 194, 0.733);
+  }
+  40% {
+    color: rgba(255, 0, 242, 0.452);
+  }
+  60% {
+    color: rgba(207, 110, 194, 0.219);
+  }
+  75% {
+    color: rgba(57, 216, 51, 0.61);
+  }
+  85% {
+    color: rgba(51, 122, 216, 0.829);
+  }
+}
+
+/* parrafoText */
+
+.parrafoText {
+  width: 100%;
+  text-align: center;
+  /* padding: 50px 0; aumenta el parrafo(lo aumenta el iframe*/
+  color: rgba(127, 255, 212, 0.205);
+  animation: var(--changeColor);
+}
+.parrafoText p {
+  padding-top: 20px;
+  padding: 2%;
+  color: #000a17;
+}
+
+/* introsParallax */
+
+.secondIntro {
+  background: none;
+  color: #4ba738;
+  text-decoration: none;
+  width: 600px;
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 3px;
+  word-spacing: 25%;
+  line-height: 100px;
+  animation: var(--changeColor);
+}
+.firstIntro {
+  transition: 1s ease;
+  font-weight: 500;
+  animation: var(--changeColorReverse);
+}
+.firstIntro:hover {
+  background: white;
+  font-size: 30px;
+  letter-spacing: 3px;
+  word-spacing: 25%;
+  animation: var(--changeColor);
+  transition: 3s ease 0.3ms;
+}

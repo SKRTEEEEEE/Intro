@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cc317526.css",
+    "main.js": "/static/js/main.18407c12.js",
+    "static/media/crazy.gif": "/static/media/crazy.5e216446d40202e87450.gif",
+    "static/media/gifProfile.gif": "/static/media/gifProfile.d512b37860590e102446.gif",
+    "static/media/logo2.gif": "/static/media/logo2.1a159238bbb0381c9847.gif",
+    "static/media/Dark Queen 420.png": "/static/media/Dark Queen 420.2cd7e27226190fddefc2.png",
+    "static/media/logo1.gif": "/static/media/logo1.974fd8c611a7c496f19c.gif",
+    "index.html": "/index.html",
+    "main.cc317526.css.map": "/static/css/main.cc317526.css.map",
+    "main.18407c12.js.map": "/static/js/main.18407c12.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc317526.css",
+    "static/js/main.18407c12.js"
+  ]
+}
